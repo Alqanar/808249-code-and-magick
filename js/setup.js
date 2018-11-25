@@ -51,23 +51,21 @@ function getRandomInteger(min, max) {
 }
 
 function getWizard(data) {
-  var wizard = {};
-
-  wizard.name = data.names[getRandomInteger(0, data.names.length - 1)] + ' ' + data.surnames[getRandomInteger(0, data.surnames.length - 1)];
-  wizard.coatColor = data.coatColors[getRandomInteger(0, data.coatColors.length - 1)];
-  wizard.eyesColor = data.eyesColors[getRandomInteger(0, data.eyesColors.length - 1)];
-
-  return wizard;
+  return {
+    name: data.names[getRandomInteger(0, data.names.length - 1)] + ' ' + data.surnames[getRandomInteger(0, data.surnames.length - 1)],
+    coatColor: data.coatColors[getRandomInteger(0, data.coatColors.length - 1)],
+    eyesColor: data.eyesColors[getRandomInteger(0, data.eyesColors.length - 1)]
+  };
 }
 
 function generateWizard(dataWizard) {
-  var cloneWizard = templateWizard.cloneNode(true);
+  var clonedWizard = templateWizard.cloneNode(true);
 
-  cloneWizard.querySelector('.setup-similar-label').textContent = dataWizard.name;
-  cloneWizard.querySelector('.wizard-coat').setAttribute('fill', dataWizard.coatColor);
-  cloneWizard.querySelector('.wizard-eyes').setAttribute('fill', dataWizard.eyesColor);
+  clonedWizard.querySelector('.setup-similar-label').textContent = dataWizard.name;
+  clonedWizard.querySelector('.wizard-coat').setAttribute('fill', dataWizard.coatColor);
+  clonedWizard.querySelector('.wizard-eyes').setAttribute('fill', dataWizard.eyesColor);
 
-  return cloneWizard;
+  return clonedWizard;
 }
 
 function getSimilarWizards() {
