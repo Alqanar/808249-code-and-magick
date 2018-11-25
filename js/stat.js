@@ -54,7 +54,7 @@ function renderCloud(ctx, x, y, cloudShadowColor, cloudColor) {
 }
 
 function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  return min + Math.floor(Math.random() * (max + 1 - min));
 }
 
 function getMaxTime(arr) {
